@@ -8,10 +8,6 @@ describe('KemetDraggable', () => {
       <kemet-draggable></kemet-draggable>
     `);
 
-    expect(element.position1).to.equal(0);
-    expect(element.position2).to.equal(0);
-    expect(element.position3).to.equal(0);
-    expect(element.position4).to.equal(0);
     expect(element.top).to.equal('auto');
     expect(element.left).to.equal('auto');
     expect(element.measure).to.equal(false);

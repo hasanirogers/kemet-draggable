@@ -1,7 +1,7 @@
 {
-  "name": "kemet-draggable",
-  "version": "0.0.0",
-  "description": "Webcomponent kemet-draggable following open-wc recommendations",
+  "name": "@kemet/kemet-draggable",
+  "version": "1.0.0",
+  "description": "A draggable element with the ability to remember its position.",
   "author": "kemet-draggable",
   "license": "MIT",
   "main": "index.js",

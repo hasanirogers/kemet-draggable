@@ -3,28 +3,42 @@
   "tags": [
     {
       "name": "kemet-draggable",
-      "description": "A component with a title and an action counter",
+      "description": "A draggable element with the ability to remember its position.",
       "properties": [
         {
-          "name": "title",
+          "name": "memory",
           "type": "String",
-          "description": "The title of your component",
-          "default": "Hey there"
+          "description": "A unique identifier used to store the element's position in local storage.",
+          "default": null
         },
         {
-          "name": "counter",
-          "type": "Number",
-          "description": "An action counter",
-          "default": 0
-        }
-      ],
-      "events": [],
-      "slots": [],
-      "cssProperties": [
+          "name": "top",
+          "type": "String",
+          "description": "The elements top position in pixels.",
+          "default": "auto"
+        },
         {
-          "name": "--kemet-draggable-text-color",
-          "description": "Main Text Color",
-          "type": "Color"
+          "name": "left",
+          "type": "String",
+          "description": "The element's left position in pixels.",
+          "default": "auto"
+        },
+        {
+          "name": "measure",
+          "type": "Boolean",
+          "description": "If set to true, will measure the width and height of the element's content and apply it to the host element.",
+          "default": false
+        }
+
+      ],
+      "events": [
+        {
+          "name": "kemet-draggable-start",
+          "description": "Fires when the user starts dragging the element."
+        },
+        {
+          "name": "kemet-draggable-stop",
+          "description": "Fires when the user stops dragging the element."
         }
       ]
     }

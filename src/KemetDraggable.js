@@ -18,26 +18,14 @@ export class KemetDraggable extends LitElement {
       memory: {
         type: String
       },
-      position1: {
-        type: Number
-      },
-      position2: {
-        type: Number
-      },
-      position3: {
-        type: Number
-      },
-      position4: {
-        type: Number
-      },
       top: {
-        type: Number
+        type: String
       },
       left: {
-        type: Number
+        type: String
       },
       measure: {
-        type: Boolean,
+        type: Boolean
       }
     };
   }
@@ -45,14 +33,16 @@ export class KemetDraggable extends LitElement {
   constructor() {
     super();
 
-    this.position1 = 0;
-    this.position2 = 0;
-    this.position3 = 0;
-    this.position4 = 0;
+    // managed properties defaults
     this.top = 'auto';
     this.left = 'auto';
     this.measure = false;
 
+    // js property defaults
+    this.position1 = 0;
+    this.position2 = 0;
+    this.position3 = 0;
+    this.position4 = 0;
     this.mouseMove = (event) => this.drag(event);
     this.mouseUp = () => this.stopDrag();
   }
@@ -84,8 +74,8 @@ export class KemetDraggable extends LitElement {
     if (event) {
       event.preventDefault();
 
-      this.position3 = event.clientX || 0;
-      this.position4 = event.clientY || 0;
+      this.position3 = event.clientX;
+      this.position4 = event.clientY;
     }
 
     document.addEventListener('mouseup', this.mouseUp);
