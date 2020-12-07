@@ -18,12 +18,6 @@ export class KemetDraggable extends LitElement {
       memory: {
         type: String
       },
-      mouseMove: {
-        type: Function
-      },
-      mouseUp: {
-        type: Function
-      },
       position1: {
         type: Number
       },
@@ -51,8 +45,6 @@ export class KemetDraggable extends LitElement {
   constructor() {
     super();
 
-    this.mouseMove = (event) => this.drag(event);
-    this.mouseUp = () => this.stopDrag();
     this.position1 = 0;
     this.position2 = 0;
     this.position3 = 0;
@@ -60,6 +52,9 @@ export class KemetDraggable extends LitElement {
     this.top = 'auto';
     this.left = 'auto';
     this.measure = false;
+
+    this.mouseMove = (event) => this.drag(event);
+    this.mouseUp = () => this.stopDrag();
   }
 
   firstUpdated() {
@@ -86,13 +81,21 @@ export class KemetDraggable extends LitElement {
   }
 
   startDrag(event) {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
 
-    this.position3 = event.clientX;
-    this.position4 = event.clientY;
+      this.position3 = event.clientX || 0;
+      this.position4 = event.clientY || 0;
+    }
 
     document.addEventListener('mouseup', this.mouseUp);
     document.addEventListener('mousemove', this.mouseMove);
+
+    this.dispatchEvent(new CustomEvent('kemet-draggable-start', {
+      bubbles: true,
+      composed: true,
+      detail: this
+    }));
   }
 
   drag(event) {
@@ -119,6 +122,12 @@ export class KemetDraggable extends LitElement {
 
       localStorage.setItem(this.memory, JSON.stringify(savedPosition));
     }
+
+    this.dispatchEvent(new CustomEvent('kemet-draggable-stop', {
+      bubbles: true,
+      composed: true,
+      detail: this
+    }));
   }
 
   measureContent() {
