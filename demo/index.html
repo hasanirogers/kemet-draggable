@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Kemet Draggable</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      box-sizing: border-box;
+      background: #fafafa;
+    }
+
+    section {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: auto 1fr;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../kemet-draggable.js';
+
+    render(
+      html`
+        <section>
+          <div>
+            <kemet-draggable measure>
+              <button>Drag me!</button>
+            </kemet-draggable>
+          </div>
+          <div>
+            <kemet-draggable measure memory="a-unique-identifier-here">
+              <button>Drag me and I'll remember where you dragged me!</button>
+            </kemet-draggable>
+          </div>
+        </section>
+      `,
+      document.querySelector('#demo')
+    );
+  </script>
+</body>
+</html>
