@@ -56,5 +56,16 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasanirogers/kemet-draggable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hasanirogers/kemet-draggable/issues"
+  },
+  "homepage": "http://kemet.online/draggable"
 }
