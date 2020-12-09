@@ -121,7 +121,7 @@ export class KemetDraggable extends LitElement {
   }
 
   measureContent() {
-    this.style.width = `${this.draggableElement.clientWidth}px`;
-    this.style.height = `${this.draggableElement.clientHeight}px`;
+    this.style.width = `${this.draggableElement.offsetWidth}px`;
+    this.style.height = `${this.draggableElement.offsetHeight}px`;
   }
 }

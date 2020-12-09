@@ -1,6 +1,6 @@
 {
   "name": "@kemet/kemet-draggable",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A draggable element with the ability to remember its position.",
   "author": "kemet-draggable",
   "license": "MIT",
